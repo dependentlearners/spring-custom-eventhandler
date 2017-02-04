@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 @Component
-public class BeanCreationListener extends AbstractAutoProxyCreator {
+public class BeanProxyCreator extends AbstractAutoProxyCreator {
 
     @Autowired
     private EventRegistry eventRegistry;
