@@ -1,10 +1,6 @@
 package com.dependentlearners.spring;
 
-import com.google.common.base.Preconditions;
-import com.google.common.base.Predicates;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Streams;
-import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -19,12 +15,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import static com.dependentlearners.spring.EventDetails.Event.from;
-import static com.google.common.base.Preconditions.checkArgument;
-import static org.apache.logging.log4j.ThreadContext.containsKey;
 import static org.springframework.aop.support.AopUtils.getTargetClass;
 
 /**

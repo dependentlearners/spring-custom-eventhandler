@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
-import static com.dependentlearners.spring.EventDetails.Event.from;
-
 @Component
 public class BeanProxyCreator extends AbstractAutoProxyCreator {
 

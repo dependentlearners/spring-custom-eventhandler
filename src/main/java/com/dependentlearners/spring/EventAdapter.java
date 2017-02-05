@@ -1,12 +1,11 @@
 package com.dependentlearners.spring;
 
-import java.lang.reflect.InvocationTargetException;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.InvocationTargetException;
 
 import static com.dependentlearners.spring.EventDetails.isMethodParametersGreaterThanOne;
 import static com.google.common.base.Preconditions.checkArgument;
