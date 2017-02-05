@@ -1,8 +1,6 @@
 package com.dependentlearners.spring;
 
-/**
- *
- */
+
 public enum AckMode {
     SELF,
     AUTO,

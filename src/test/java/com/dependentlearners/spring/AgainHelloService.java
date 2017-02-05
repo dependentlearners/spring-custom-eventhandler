@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AgainHelloService {
     @EventListener("bolo")
-    public void kolo() {
-        System.out.println(String.format("kolo %s", "hello"));
+    public void kolo(String k) {
+        System.out.println(String.format("kolo %s", k));
     }
 }

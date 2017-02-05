@@ -7,25 +7,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class EventListenerMethodInterceptor implements MethodInterceptor {
-    private final EventListener eventListener;
     private final Method methodEventHandler;
 
-    EventListenerMethodInterceptor(EventListener eventListener, Method methodEventHandler) {
-        this.eventListener = eventListener;
+    EventListenerMethodInterceptor(Method methodEventHandler) {
         this.methodEventHandler = methodEventHandler;
     }
 
     public void proceed(Object data) throws InvocationTargetException, IllegalAccessException {
-        methodEventHandler.invoke(this);
+        this.methodEventHandler.invoke(this);
     }
 
     @Override
     public Object invoke(MethodInvocation method) throws Throwable {
         final Object proceed = method.proceed();
 
-        //TODO: Do cleaning activity
-        if (methodEventHandler.equals(method.getMethod())) {
+//TODO: Do cleaning activity
 
+        if (this.methodEventHandler.equals(method.getMethod())) {
         }
 
         return proceed;

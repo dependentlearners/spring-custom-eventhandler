@@ -15,8 +15,8 @@ public class TestApplicationContext {
         final AnnotationConfigApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(TestApplicationContext.class);
 
-        final EventRegistry bean = applicationContext.getBean(EventRegistry.class);
-        bean.invoke("hello", null);
-        bean.invoke("bolo", "do it my way");
+        final EventAdapter bean = applicationContext.getBean(EventAdapter.class);
+        bean.process("hello", null);
+        bean.process("bolo", "do it my way");
     }
 }
