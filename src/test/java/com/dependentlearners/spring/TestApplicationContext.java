@@ -16,7 +16,10 @@ public class TestApplicationContext {
                 new AnnotationConfigApplicationContext(TestApplicationContext.class);
 
         final EventAdapter bean = applicationContext.getBean(EventAdapter.class);
+
         bean.process("hello", null);
-        bean.process("bolo", "do it my way");
+        bean.process("dolo", "do it my way");
+
+        System.in.read();
     }
 }

@@ -15,11 +15,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @Component
 @Slf4j
 public class EventAdapter {
-    final EventMapping eventMapping;
+    final EventHandlerMapping eventMapping;
     final ApplicationContext applicationContext;
 
     @Autowired
-    public EventAdapter(EventMapping eventMapping, ApplicationContext applicationContext) {
+    public EventAdapter(EventHandlerMapping eventMapping, ApplicationContext applicationContext) {
         this.eventMapping = eventMapping;
         this.applicationContext = applicationContext;
     }

@@ -1,13 +1,13 @@
 package com.dependentlearners.spring;
 
-import java.lang.reflect.Method;
-import java.util.function.Predicate;
-
 import com.google.common.base.Preconditions;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Value;
 import org.springframework.context.ApplicationContext;
+
+import java.lang.reflect.Method;
+import java.util.function.Predicate;
 
 
 @Value
@@ -22,7 +22,7 @@ class EventDetails {
         return p -> p.method.getParameterCount() > 1;
     }
 
-    public Object getEventImplementingObject(ApplicationContext applicationContext) {
+    Object getEventImplementingObject(ApplicationContext applicationContext) {
         Preconditions.checkNotNull(applicationContext, "application context should not be null");
         final Object bean = applicationContext.getBean(this.beanName);
         Preconditions.checkNotNull(bean, "No bean registered in the container");

@@ -6,8 +6,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import org.springframework.core.annotation.AliasFor;
-
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
@@ -16,9 +14,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface EventListener {
     AckMode ackMode() default AckMode.AUTO;
 
-    @AliasFor("event")
-    String value() default "";
-
-    @AliasFor("value")
-    String event() default "";
+    String event();
 }

@@ -15,13 +15,13 @@ import static com.dependentlearners.spring.EventDetails.Event.from;
 public class BeanProxyCreator extends AbstractAutoProxyCreator {
 
     @Autowired
-    private EventMapping eventMapping;
+    private EventHandlerMapping eventMapping;
 
     @Override
     protected Object[] getAdvicesAndAdvisorsForBean(Class<?> beanClass, String beanName, TargetSource customTargetSource) throws BeansException {
         return Lists.newArrayList(beanClass.getMethods())
                 .stream()
-                .filter((method) -> method.getAnnotation(EventListener.class) != null)
+                .filter((method) -> method.isAnnotationPresent(EventListener.class))
                 .findFirst()
                 .map((method) -> createProxy(beanName, method))
                 .orElse(null);
@@ -29,8 +29,6 @@ public class BeanProxyCreator extends AbstractAutoProxyCreator {
     }
 
     private Object[] createProxy(String beanName, Method method) {
-        final String eventName = method.getAnnotation(EventListener.class).value();
-        this.eventMapping.addMapping(eventName, new EventDetails(from(eventName), beanName, method));
         return new Object[]{new EventListenerMethodInterceptor(method)};
     }
 
